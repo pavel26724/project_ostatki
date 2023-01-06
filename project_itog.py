@@ -232,4 +232,4 @@ def ostatok_46_46dealer_46BOSCH():
 start_time = time.time()
 ostatok_base_44_44dealer_46alyans()
 ostatok_46_46dealer_46BOSCH()
-print('отработла за', "%s секунд" % (time.time() - start_time))
+print(f'отработла за {int(time.time() - start_time)} секунд')
