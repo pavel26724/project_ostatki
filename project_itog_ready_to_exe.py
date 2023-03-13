@@ -23,7 +23,9 @@ def ostatok_base_44_ixora_44dealer_46alyans():
     dict_ost = {}
     for row in sheet.iter_rows(min_row=11, max_row=None):
         if row[2].value != 0 and row[1].value:
-            dict_ost[str(row[1].value)] = row[2].value
+            if row[2].value > 0:
+                dict_ost[str(row[1].value)] = row[2].value
+
     dict_price = {}
     for row in sheet_price.iter_rows(min_row=2, max_row=None):
         a = dict(
@@ -70,7 +72,7 @@ def ostatok_base_44_ixora_44dealer_46alyans():
     for k, v in dict_ost.items():  # 46 alyans
         k = str(k)
         if dict_price.get(k) and dict_price[k]['brand'] == 'SWF' or dict_price.get(k) and dict_price[k][
-            'brand'] == 'MOTUL' or dict_price.get(k) and dict_price[k]['brand'] == 'MANDO' or dict_price.get(k) and \
+            'brand'] == 'MOTUL' or dict_price.get(k) and dict_price[k]['brand'] == 'Mando' or dict_price.get(k) and \
                 dict_price[k]['brand'] == 'BSG' or dict_price.get(k) and dict_price[k]['brand'] == 'NIBK':
             b = [dict_price[k]['name'], dict_price[k]['brand'], dict_price[k]['number'], v, dict_price[k]['partia'], dict_price[k]['price_uch']]
             sheet_al.append(b)
@@ -190,3 +192,4 @@ start_time = time.time()
 ostatok_base_44_ixora_44dealer_46alyans()
 ostatok_46_46dealer_46BOSCH()
 print(f'отработала за {int(time.time() - start_time)} секунд')
+
